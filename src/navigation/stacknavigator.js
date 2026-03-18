@@ -1,12 +1,27 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import { createStackNavigator } from "@react-navigation/stack";
+import Home from "../screens/Home";
+import About from "../screens/About";
 
-const  = ({
-    params,
-}) => (
-    <View>
-        <Text>componentName</Text>
-    </View>
+const Stack = createStackNavigator();
+
+const stackNavigatorStyle = {
+  headerStyle: {
+    backgroundColor: "#ff6347",
+  },
+  headerTintColor: "white",
+  headerShown: false,
+};
+
+const MainStackNavigator = ({ navigation }) => (
+  <Stack.Navigator screenOptions={stackNavigatorStyle}>
+    <Stack.Screen name="Home" component={Home} />
+  </Stack.Navigator>
 );
 
-export default componentName;
+const AboutStackNavigator = ({ navigation }) => (
+  <Stack.Navigator screenOptions={stackNavigatorStyle}>
+    <Stack.Screen name="About" component={About} />
+  </Stack.Navigator>
+);
+
+export { MainStackNavigator, AboutStackNavigator };
